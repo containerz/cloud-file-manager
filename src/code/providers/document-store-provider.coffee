@@ -1,6 +1,8 @@
 {div, button, span} = React.DOM
+getQueryParam = require '../utils/get-query-param'
 
-documentStore = "//document-store.concord.org"
+# TODO: refactor to use @client.appOptions.hashParams.documentServer in constructor
+documentStore = getQueryParam('documentServer') or "//document-store.concord.org"
 authorizeUrl      = "#{documentStore}/user/authenticate"
 checkLoginUrl     = "#{documentStore}/user/info"
 listUrl           = "#{documentStore}/document/all"
